@@ -21,7 +21,7 @@
     </div>
 <?php }?>
 
-<h2 class="grid_12">Contents
+<h2 class="grid_12">Content Pages
     <div style="float:right;margin-right:5%;">
         <?php echo $this->Html->link('Add', array('action' => 'add','admin'=>true)); ?>
     </div>
@@ -33,7 +33,7 @@
     <div class="box">
         <div class="header">
             <?php echo $this -> Html -> image('icons/packs/fugue/16x16/shadeless/table-excel.png', array('width' => '16', 'height' => '16', 'alt' => 'user')); ?>
-            <h3>Locations</h3>
+            <h3>Content Pages</h3>
 
             <span></span>
         </div>
@@ -45,8 +45,8 @@
                 <thead>
                 <tr>
                     <th>Sr. No.</th>
-                    <th><?php echo 'Page Name'; ?></th>
-                    <th><?php echo 'Published'; ?></th>
+                    <th><?php echo 'Page title'; ?></th>
+
                     <th><?php echo 'Created Date'; ?></th>
                     <th><?php echo __('Actions'); ?></th>
                 </tr>
@@ -57,8 +57,7 @@
                     <?php foreach ($contents as $content): ?>
                         <tr id="<?php echo $content['Content']['id'];?>">
                             <td><?php echo $i++;?></td>
-                            <td><?php echo h($content['Content']['page_name']); ?>&nbsp;</td>
-                            <td><?php echo ($content['Content']['published']==1)?'Enable':'Disable'; ?>&nbsp;</td>
+                            <td><?php echo h($content['Content']['page_title']); ?>&nbsp;</td>
                             <td><?php echo h($content['Content']['created']); ?>&nbsp;</td>
                             <td>
                                 <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $content['Content']['id'])); ?>
@@ -83,7 +82,6 @@ $('#table-example').dataTable({
 null,
 null,
 null,
-null,
 {"bSortable":false}
 ]
 });
@@ -104,7 +102,7 @@ var clicked = function(){
 $.fallr('hide');
 //alert(id);
 //return true;
-window.location = "<?php echo $this->html->url(array('controller'=>'Locations','action'=>'delete','admin'=>true))?>/"+id;
+window.location = "<?php echo $this->html->url(array('controller'=>'contents','action'=>'delete','admin'=>true))?>/"+id;
 //alert('congrats, you\'ve deleted image');
 };
 $.fallr('show', {

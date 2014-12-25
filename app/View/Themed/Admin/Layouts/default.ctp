@@ -172,110 +172,26 @@ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 					<div class="container_12">
 						<!-- Start of the main navigation -->
 						<ul id="nav_main">
+<!--                            <li class="--><?php //echo $lifestyle; ?><!--">-->
+<!--                                --><?php //echo $this -> Html -> link($this -> Html -> image("icons/25x25/dark/computer-imac.png", array('width' => '25', 'height' => '25', 'alt' => '')) . 'Lifestyle Collections', array('controller' => 'Users', 'action' => 'index', 'admin' => true), array('escape' => FALSE)); ?>
+<!--                                <ul>-->
+<!--                                    <li class="">-->
+<!--                                        --><?php //echo $this -> Html -> link('Users', array('controller' => 'Users', 'action' => 'index', 'admin' => true)); ?>
+<!--                                    </li>-->
+<!---->
+<!--                                </ul>-->
+<!--                            </li>-->
+
 							<li class="<?php echo $home; ?>">
 								<a href="#"> <?php echo $this -> Html -> image('icons/25x25/dark/computer-imac.png', array('width' => '25', 'height' => '25', 'alt' => '')); ?>
-								Dashboard</a>
+								Content Pages</a>
 								<ul>
                                     <li class="">
-                                        <?php echo $this -> Html -> link('All Vehicle', array('controller' => 'CarClasses', 'action' => 'admin_all_vehicle', 'admin' => true)); ?>
-                                    </li>
-									<li class="">
-										<?php echo $this -> Html -> link('Car Classes', array('controller' => 'CarClasses', 'action' => 'index', 'admin' => true)); ?>
-									</li>
-									<li class="">
-										<?php echo $this -> Html -> link('Car Models', array('controller' => 'CarModels', 'action' => 'index', 'admin' => true)); ?>
-									</li>
-                                    <li class="">
-                                        <?php echo $this -> Html -> link('AMG Car Models', array('controller' => 'amg_car_models', 'action' => 'index', 'admin' => true)); ?>
-                                    </li>
-									<li>
-										<?php echo $this -> Html -> link('Car Model Categories', array('controller' => 'CarModelCategories', 'action' => 'index', 'admin' => true)); ?>
-									</li>
-<!--									<li>-->
-<!--										--><?php //echo $this -> Html -> link('Car Model Category Images', array('controller' => 'CarModelCategoryImages', 'action' => 'index', 'admin' => true)); ?>
-<!--									</li>-->
-
-								</ul>
-							</li>
-							<li class="<?php echo $lifestyle; ?>">
-								<?php echo $this -> Html -> link($this -> Html -> image("icons/25x25/dark/computer-imac.png", array('width' => '25', 'height' => '25', 'alt' => '')) . 'Lifestyle Collections', array('controller' => 'LifestyleCollections', 'action' => 'index', 'admin' => true), array('escape' => FALSE)); ?>
-								<ul>
-                                    <li class="">
-                                        <?php echo $this -> Html -> link('Lifestyle Collections', array('controller' => 'LifestyleCollections', 'action' => 'index', 'admin' => true)); ?>
-                                    </li>
-
-									<li class="">
-										<?php echo $this -> Html -> link('Lifestyle Collection Type', array('controller' => 'LifestyleCollectionTypes', 'action' => 'index', 'admin' => true)); ?>
-									</li>
-									<li>
-										<?php echo $this -> Html -> link('Lifestyle Collection Categories', array('controller' => 'LifestyleCollectionCategories', 'action' => 'index', 'admin' => true)); ?>
-									</li>
-								</ul>
-							</li>
-
-							<li class="<?php echo $locations; ?>">
-
-								<?php echo $this -> Html -> link($this -> Html -> image("icons/25x25/dark/computer-imac.png", array('width' => '25', 'height' => '25', 'alt' => '')) . 'Locations', array('controller' => 'Locations', 'action' => 'index', 'admin' => true), array('escape' => FALSE)); ?>
-								<ul>
-                                    <li class="">
-                                        <?php echo $this -> Html -> link('Locations', array('controller' => 'Locations', 'action' => 'index', 'admin' => true)); ?>
-                                    </li>
-
-									<li class="">
-										<?php echo $this -> Html -> link('Location Types', array('controller' => 'LocationTypes', 'action' => 'index', 'admin' => true)); ?>
-									</li>
-								</ul>
-							</li>
-
-							<li class="<?php echo $preowned; ?>">
-
-								<?php echo $this -> Html -> link($this -> Html -> image("icons/25x25/dark/computer-imac.png", array('width' => '25', 'height' => '25', 'alt' => '')) . 'Preowned Cars', array('controller' => 'PreownedCars', 'action' => 'index', 'admin' => true), array('escape' => FALSE)); ?>
-								<ul>
-									<li class="">
-										<?php echo $this -> Html -> link('Preowned Cars', array('controller' => 'PreownedCars', 'action' => 'index', 'admin' => true)); ?>
-									</li>
-								</ul>
-							</li>
-
-							<li class="<?php echo $news; ?>">
- 								<?php echo $this -> Html -> link($this -> Html -> image("icons/25x25/dark/computer-imac.png", array('width' => '25', 'height' => '25', 'alt' => '')) . 'News & Promotions', array('controller' => 'News', 'action' => 'index', 'admin' => true), array('escape' => FALSE)); ?>
-								<ul>
-                                    <li class="">
-                                        <?php echo $this -> Html -> link('News', array('controller' => 'News', 'action' => 'index', 'admin' => true)); ?>
+                                        <?php echo $this -> Html -> link('Content Pages', array('controller' => 'Contents', 'action' => 'index', 'admin' => true)); ?>
                                     </li>
 								</ul>
 							</li>
 
-                            <li class="<?php echo $alerts; ?>">
-                                <?php echo $this -> Html -> link($this -> Html -> image("icons/25x25/dark/computer-imac.png", array('width' => '25', 'height' => '25', 'alt' => '')) . 'Alerts', array('controller' => 'Alerts', 'action' => 'index', 'admin' => true), array('escape' => FALSE)); ?>
-                                <ul>
-                                    <li class="">
-                                        <?php echo $this -> Html -> link('News', array('controller' => 'News', 'action' => 'index', 'admin' => true)); ?>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="<?php echo $survey; ?>">
-                                <?php echo $this -> Html -> link($this -> Html -> image("icons/25x25/dark/computer-imac.png", array('width' => '25', 'height' => '25', 'alt' => '')) . 'Surveys', array('controller' => 'Surveys', 'action' => 'index', 'admin' => true), array('escape' => FALSE)); ?>
-                                <ul>
-                                    <li class="<?php echo $survey; ?>">
-                                        <?php echo $this -> Html -> link('Surveys', array('controller' => 'Surveys', 'action' => 'index', 'admin' => true)); ?>
-                                    </li>
-
-                                    <li class="<?php echo $survey; ?>">
-                                        <?php echo $this -> Html -> link('Survey Questions', array('controller' => 'SurveyQuestions', 'action' => 'index', 'admin' => true)); ?>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="<?php echo $AppUsers; ?>">
-                                <?php echo $this -> Html -> link($this -> Html -> image("icons/25x25/dark/computer-imac.png", array('width' => '25', 'height' => '25', 'alt' => '')) . 'Report', array('controller' => 'AppUsers', 'action' => 'index', 'admin' => true), array('escape' => FALSE)); ?>
-                                <ul>
-                                    <li class="<?php echo $survey; ?>">
-                                        <?php echo $this -> Html -> link('Report', array('controller' => 'AppUsers', 'action' => 'index', 'admin' => true)); ?>
-                                    </li>
-                                </ul>
-                            </li>
 
 						</ul>
 						<!-- End of the main navigation -->
@@ -349,8 +265,7 @@ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 			
 		echo $this -> Html -> script('script.js');
         $date = new DateTime();
-        echo $this -> Html -> script('common.js?v'.$date->getTimestamp());
-		
+
 		echo $this->fetch('script');
 		echo $this->fetch('scriptBottom');
 		?>

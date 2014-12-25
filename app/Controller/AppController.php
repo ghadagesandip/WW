@@ -50,8 +50,15 @@ class AppController extends Controller {
 		if(isset($this->request->params['prefix']) && ($this->request->params['prefix']=='admin')){
             $this -> theme = 'Admin';
         }else{
+            $this->theme = 'Webwerks';
             $this->Auth->allow('*');
         }
 	}
 
+
+    function beforeRender() {
+        if($this->name == 'CakeError') {
+            $this->layout = 'ajax';
+        }
+    }
 }

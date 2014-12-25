@@ -6,9 +6,9 @@
 			<?php echo h($content['Content']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Page Name'); ?></dt>
+		<dt><?php echo __('Page title'); ?></dt>
 		<dd>
-			<?php echo h($content['Content']['page_name']); ?>
+			<?php echo h($content['Content']['page_title']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Header Image'); ?></dt>

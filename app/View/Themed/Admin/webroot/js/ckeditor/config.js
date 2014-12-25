@@ -13,6 +13,9 @@ CKEDITOR.editorConfig = function( config ) {
 	 //config.uiColor = '#AADC6E';
 	
 	 config.toolbar = 'Full';
+
+     config.allowedContent = true;
+
 	 /*config.toolbar_Full =
 	 [
 	  
@@ -45,5 +48,7 @@ CKEDITOR.editorConfig = function( config ) {
 	];
 	
 	config.toolbar_Basic = [['button1']];
+    config.enterMode = CKEDITOR.ENTER_BR;
+    config.shiftEnterMode = CKEDITOR.ENTER_P;
 
 };

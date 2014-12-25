@@ -12,16 +12,23 @@
 
 <div id="main_content">
 
-    <h2 class="grid_12">Add Content Page</h2>
+    <h2 class="grid_12">
+        Add Content Page
+        <div style="float:right;margin-right:5%;">
+            <?php echo $this->Html->link('Back',array('controller'=>'contents','action'=>'index'))?>
+        </div>
+    </h2>
+
     <div class="clean"></div>
     <center>
         <div class="grid_6" style="width:95%;">
 
             <div class="box">
+
                 <div class="header">
                     <?php echo $this -> Html -> image('icons/packs/fugue/16x16/shadeless/application-form.png', array('width' => '16', 'height' => '16', 'alt' => 'user')); ?>
 
-                    <h3>Add Content Page</h3>
+                    <h3>Add Content Page Details </h3>
                     <span></span>
                 </div>
                 <?php echo $this -> Form -> create('Content', array('class' => 'validate', 'type' => 'file')); ?>
@@ -30,15 +37,24 @@
 				<legend><?php echo __('Admin Add Vehicle'); ?></legend> -->
                 <div class="content no-padding">
                     <div class="section _100">
-                        <label> <?php echo $this -> Form -> label('page_name', 'Page Name'); ?> </label>
+                        <label> <?php echo $this -> Form -> label('page_title', 'Page Title'); ?> </label>
                         <div>
-                            <?php echo $this -> Form -> input('page_name', array('label' => false, 'class' => 'required')); ?>
+                            <?php echo $this -> Form -> input('page_title', array('label' => false, 'class' => 'required')); ?>
                         </div>
                     </div>
 
                     <div class="section _100">
-                        <label> <?php echo $this -> Form -> label('page_content', 'Page Content'); ?> </label>
+                        <label> <?php echo $this -> Form -> label('page_slug', 'Page Slug'); ?> </label>
                         <div>
+                            <?php echo $this -> Form -> input('page_slug', array('label' => false, 'class' => 'required')); ?>
+                        </div>
+                    </div>
+
+                    <div class="section _100">
+
+                        <label> <?php echo $this -> Form -> label('page_content', 'Page Content'); ?>  </label>
+                        <div>
+                            Add this div with its content from html : &lt;div class="leftCol"&gt;&lt;/div&gt;
                             <?php echo $this -> Form -> textarea('page_content', array('label' => false, 'class' => 'ckeditor')); ?>
                         </div>
                     </div>
@@ -46,6 +62,7 @@
                     <div class="section _100">
                         <label> <?php echo $this -> Form -> label('side_bar_content', 'Side Bar'); ?> </label>
                         <div>
+                            Add this div with its content  from html : &lt;div class="benefits-block"&gt;&lt;/div&gt;
                             <?php echo $this -> Form -> textarea('side_bar_content', array('label' => false, 'class' => 'ckeditor')); ?>
                         </div>
                     </div>
@@ -78,13 +95,13 @@
                         </div>
                     </div>
 
-                    <div class="section _100">
-                        <label> <?php echo $this -> Form -> label('published', 'Published'); ?> </label>
-                        <div>
-                            <?php echo $this -> Form -> input('published',array('label'=>false)); ?>
-                            <br/><br/><br/>
-                        </div>
-                    </div>
+<!--                    <div class="section _100">-->
+<!--                        <label> --><?php //echo $this -> Form -> label('published', 'Published'); ?><!-- </label>-->
+<!--                        <div>-->
+<!--                            --><?php //echo $this -> Form -> input('published',array('label'=>false)); ?>
+<!--                            <br/><br/><br/>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
 
                     <div class="section _100"></div>

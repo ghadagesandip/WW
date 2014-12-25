@@ -28,7 +28,8 @@ class UsersController extends AppController {
      */
         public function admin_index() {
             $this->User->recursive = 0;
-            $this->set('users', $this->Paginator->paginate());
+            $users = $this->{$this->modelClass}->find('all');
+            $this->set(compact('users'));
         }
 
     /**
@@ -55,10 +56,10 @@ class UsersController extends AppController {
             if ($this->request->is('post')) {
                 $this->User->create();
                 if ($this->User->save($this->request->data)) {
-                    $this->Session->setFlash(__('The user has been saved.'));
+                    $this->Session->setFlash(__('The user has been saved.'),'default',array(),'success');
                     return $this->redirect(array('action' => 'index'));
                 } else {
-                    $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+                    $this->Session->setFlash(__('The user could not be saved. Please, try again.'),'default',array(),'error');
                 }
             }
         }
@@ -79,7 +80,7 @@ class UsersController extends AppController {
                     $this->Session->setFlash(__('The user has been saved.'));
                     return $this->redirect(array('action' => 'index'));
                 } else {
-                    $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+                    $this->Session->setFlash(__('The user could not be saved. Please, try again.'),'default',array(),'error');
                 }
             } else {
                 $options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
@@ -101,9 +102,9 @@ class UsersController extends AppController {
             }
             $this->request->onlyAllow('post', 'delete');
             if ($this->User->delete()) {
-                $this->Session->setFlash(__('The user has been deleted.'));
+                $this->Session->setFlash(__('The user has been deleted.'),'default',array(),'success');
             } else {
-                $this->Session->setFlash(__('The user could not be deleted. Please, try again.'));
+                $this->Session->setFlash(__('The user could not be deleted. Please, try again.'),'default',array(),'error');
             }
             return $this->redirect(array('action' => 'index'));
         }

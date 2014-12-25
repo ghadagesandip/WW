@@ -52,11 +52,13 @@ class ContentsController extends AppController {
 
             if($filename){
                 $this->request->data[$this->modelClass]['header_image'] = $filename;
+            }else{
+                unset($this->request->data[$this->modelClass]['header_image']);
             }
 
 			$this->Content->create();
 			if ($this->Content->save($this->request->data)) {
-				$this->Session->setFlash(__('The content has been saved'));
+				$this->Session->setFlash(__('The content has been saved'),'default',array(),'success');
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The content could not be saved. Please, try again.'));
@@ -83,13 +85,15 @@ class ContentsController extends AppController {
             if($filename){
                 $this->request->data[$this->modelClass]['header_image'] = $filename;
                 @unlink($this->path.$image[$this->modelClass]['header_image']);
+            }else{
+                unset($this->request->data[$this->modelClass]['header_image']);
             }
 
 			if ($this->Content->save($this->request->data)) {
-				$this->Session->setFlash(__('The content has been saved'));
+				$this->Session->setFlash(__('The content has been saved'),'default',array(),'success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The content could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The content could not be saved. Please, try again.'),'default',array(),'error');
 			}
 		} else {
 			$options = array('conditions' => array('Content.' . $this->Content->primaryKey => $id));
@@ -110,16 +114,35 @@ class ContentsController extends AppController {
 		if (!$this->Content->exists()) {
 			throw new NotFoundException(__('Invalid content'));
 		}
-		$this->request->onlyAllow('post', 'delete');
+
+        $image = $this->{$this->modelClass}->find('first',array('conditions'=>array($this->modelClass.'.id'=>$id),'fields'=>array('header_image')));
+
+
 		if ($this->Content->delete()) {
-			$this->Session->setFlash(__('Content deleted'));
+            @unlink($this->path.$image[$this->modelClass]['header_image']);
+			$this->Session->setFlash(__('Content page deleted'),'default',array(),'success');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Content was not deleted'));
+		$this->Session->setFlash(__('Could not delete content page, try again.'),'default',array(),'error');
 		$this->redirect(array('action' => 'index'));
 	}
 
+
+
+    public function search(){
+
+    }
+
+
+
     public function view(){
 
+        $content = $this->{$this->modelClass}->find('first',array(
+            'conditions'=>array('page_slug'=>$this->request->params['slug'])
+        ));
+        if(empty($content)){
+            throw new NotFoundException;
+        }
+        $this->set(compact('content'));
     }
 }
